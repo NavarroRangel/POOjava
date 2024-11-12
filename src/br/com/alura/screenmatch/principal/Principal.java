@@ -1,14 +1,16 @@
+package br.com.alura.screenmatch.principal;
+
 import br.com.alura.screenmatch.calculos.CalculadoraDeTempo.CalculadoraDeTempo;
 import br.com.alura.screenmatch.calculos.CalculadoraDeTempo.FiltroRecomendacao;
 import br.com.alura.screenmatch.modelo.Episodio;
 import br.com.alura.screenmatch.modelo.Filme;
 import br.com.alura.screenmatch.modelo.Serie;
 
+import java.util.ArrayList;
+
 public class Principal {
     public static void main(String[] args) {
-        Filme meuFilme = new Filme();
-        meuFilme.setNome("O poderoso Chefão") ;
-        meuFilme.setAnoDeLancamento(1980);
+        Filme meuFilme = new Filme("O poderoso Chefão",1980);
         meuFilme.setDuracaoEmMinutos(260);
 
 
@@ -21,18 +23,18 @@ public class Principal {
         System.out.println(meuFilme.pegaMedia());
 
 
-        Serie lost = new Serie();
-        lost.setNome("LOST");
-        lost.setAnoDeLancamento(2000);
+        Serie lost = new Serie("LOST",2000);
+
         lost.exibeFichaTecnica();
         lost.setTemporadas(19);
         lost.setEpisodioPorTemporada(12);
         lost.setMinutosPorEpisodio(50);
         System.out.println(lost.getDuracaoEmMinutos());
 
-        Filme outroFilme = new Filme();
-        outroFilme.setNome("Avatar") ;
+    Filme outroFilme = new Filme("avatar",2000);
+
         outroFilme.setDuracaoEmMinutos(200);
+
 
         CalculadoraDeTempo calculadoraDeTempo = new CalculadoraDeTempo();
         calculadoraDeTempo.inclui(meuFilme);
@@ -48,6 +50,17 @@ public class Principal {
         episodio.setSerie(lost);
         episodio.setTotalVisualizacoes(0);
         filtro.filtra(episodio);
+
+        ArrayList<Filme> listaDeFilmes = new ArrayList<>();
+        listaDeFilmes.add(meuFilme);
+        listaDeFilmes.add(outroFilme);
+        System.out.println("tamanho da lista " + listaDeFilmes.size());
+        System.out.println("primeiro filme " + listaDeFilmes.get(0).getNome());
+        System.out.println(listaDeFilmes.get(0).toString());
+
+        var filmeFilmeDoPaulo = new Filme("dogville",1978);
+
+
     }
 
 }

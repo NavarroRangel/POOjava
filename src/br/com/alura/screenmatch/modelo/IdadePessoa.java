@@ -27,4 +27,11 @@ public class IdadePessoa {
             System.out.println("TU é veio");
         }
     }
+
+    @Override
+    public String toString() {
+        return "nome='" + nome + '\'' +
+                ", idade=" + idade +
+                '}';
+    }
 }
